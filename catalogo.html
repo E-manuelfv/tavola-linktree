@@ -1,306 +1,273 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Távola | Catálogo Airsoft & Tático</title>
-    
-    <!-- Fontes Oficiais da Marca -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Távola 3D | Links Oficiais</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-        :root {
-            --bg-color: #1a1a1a;
-            --card-bg: #262626;
-            --text-main: #ffffff;
-            --text-muted: #a3a3a3;
-            --accent-color: #d4af37; /* Dourado Távola */
-            --accent-hover: #f1c94b;
-            --ml-color: #ffe600; /* Cor do Mercado Livre */
-            --ml-hover: #ffed4d;
-            --font-title: 'League Spartan', sans-serif;
-            --font-body: 'Montserrat', sans-serif;
-        }
+      /* Variáveis de Cores e Estilo Oficiais */
+      :root {
+        --bg-color: #1a1a1a;
+        --card-bg: linear-gradient(145deg, #262626, #1f1f1f);
+        --text-main: #ffffff;
+        --text-muted: #a3a3a3;
+        --accent-color: #d4af37; /* Dourado Távola */
+        --accent-hover: #f1c94b;
+        --font-title: "League Spartan", sans-serif;
+        --font-body: "Montserrat", sans-serif;
+      }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: var(--font-body);
-            padding: 20px;
-            background-image: radial-gradient(circle at top, #2a2a2a 0%, #1a1a1a 100%);
-            min-height: 100vh;
-        }
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        font-family: var(--font-body);
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 40px 20px;
+        background-image: radial-gradient(
+          circle at top,
+          #2a2a2a 0%,
+          #1a1a1a 100%
+        );
+      }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+      /* Container principal estilo tela de celular */
+      .container {
+        width: 100%;
+        max-width: 450px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
 
-        /* Cabeçalho do Catálogo */
-        header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 40px;
-            gap: 15px;
-        }
+      /* Cabeçalho (Logo, Nome e Descrição) */
+      .profile-header {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
 
-        .back-link {
-            align-self: flex-start;
-            color: var(--accent-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: color 0.3s;
-        }
+      .profile-pic {
+        width: 105px;
+        height: 105px;
+        border-radius: 50%;
+        background-color: #333;
+        border: 2px solid var(--accent-color);
+        object-fit: cover;
+        background-image: url("Logo Távola.png");
+        background-position: center;
+        background-size: cover;
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+      }
 
-        .back-link:hover {
-            color: var(--accent-hover);
-        }
+      .profile-header h1 {
+        font-family: var(--font-title);
+        font-size: 2.2rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--text-main);
+      }
 
-        header h1 {
-            font-family: var(--font-title);
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+      .profile-header p {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        font-weight: 400;
+        line-height: 1.4;
+        max-width: 380px;
+      }
 
-        header p {
-            color: var(--text-muted);
-        }
+      /* Lista de Links (Cards) */
+      .links-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
 
-        /* Barra de Pesquisa */
-        .search-container {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto 40px auto;
-        }
+      .card {
+        background: var(--card-bg);
+        border: 1px solid #333;
+        border-radius: 16px;
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-decoration: none;
+        color: var(--text-main);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
 
-        .search-container input {
-            width: 100%;
-            padding: 15px 20px;
-            border-radius: 30px;
-            border: 1px solid #444;
-            background-color: #111;
-            color: white;
-            font-family: var(--font-body);
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
+      .card:hover {
+        border-color: var(--accent-color);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      }
 
-        .search-container input:focus {
-            border-color: var(--accent-color);
-        }
+      /* Caixa de Ícone SVG */
+      .card-icon {
+        min-width: 58px;
+        height: 58px;
+        background: #111;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #333;
+        color: var(--accent-color);
+        transition: all 0.3s ease;
+      }
 
-        /* Grid de Produtos */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-        }
+      .card:hover .card-icon {
+        color: var(--accent-hover);
+        border-color: var(--accent-color);
+        background: #161616;
+      }
 
-        /* Card do Produto */
-        .product-card {
-            background-color: var(--card-bg);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid #333;
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
+      /* Conteúdo de Texto do Card */
+      .card-content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 4px;
+      }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            border-color: var(--accent-color);
-        }
+      .card-content h3 {
+        font-family: var(--font-title);
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
 
-        .product-image {
-            width: 100%;
-            height: 200px;
-            background-color: #111;
-            object-fit: cover;
-            /* Placeholder: substitua pelas fotos reais */
-            background-image: url('https://via.placeholder.com/300x200/111111/d4af37?text=Foto+do+Produto');
-            background-position: center;
-            background-size: cover;
-        }
+      .card-content p {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        line-height: 1.3;
+      }
 
-        .product-info {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            gap: 10px;
-        }
+      /* Botão Indicador */
+      .card-btn {
+        align-self: flex-start;
+        margin-top: 6px;
+        background: var(--accent-color);
+        color: #111;
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-family: var(--font-body);
+        text-transform: uppercase;
+        transition: background 0.3s;
+      }
 
-        .product-info h3 {
-            font-family: var(--font-title);
-            font-size: 1.3rem;
-            color: var(--text-main);
-        }
+      .card:hover .card-btn {
+        background: var(--accent-hover);
+      }
 
-        .product-info p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-            flex-grow: 1; /* Empurra o preço e botão pra baixo */
-        }
-
-        .product-price {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--accent-color);
-            margin: 10px 0;
-        }
-
-        .btn-comprar {
-            display: block;
-            text-align: center;
-            background-color: var(--ml-color);
-            color: #2d3277; /* Azul escuro do logo do ML */
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            transition: background-color 0.3s;
-        }
-
-        .btn-comprar:hover {
-            background-color: var(--ml-hover);
-        }
-
-        /* Rodapé */
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            font-size: 0.8rem;
-            color: #666;
-            font-family: var(--font-title);
-            letter-spacing: 1px;
-        }
-
-        /* Mensagem de nenhum produto encontrado */
-        #no-results {
-            display: none;
-            text-align: center;
-            grid-column: 1 / -1;
-            color: var(--text-muted);
-            padding: 40px;
-        }
+      /* Rodapé */
+      footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 0.75rem;
+        color: #555;
+        font-family: var(--font-title);
+        letter-spacing: 1px;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="container">
-        
-        <header>
-            <a href="index.html" class="back-link">← Voltar para o Início</a>
-            <h1>Peças Táticas & Airsoft</h1>
-            <p>Encontre os melhores upgrades e equipamentos. Compra 100% segura via Mercado Livre.</p>
-        </header>
+      <header class="profile-header">
+        <div class="profile-pic"></div>
+        <h1>Távola 3D</h1>
+        <p>Impressão 3D de Alta Precisão: Peças Táticas, Arquitetura & Colecionáveis</p>
+      </header>
 
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Pesquisar por nome do produto, marca, modelo...">
-        </div>
+      <main class="links-container">
+        <a href="https://wa.me/SEUNUMERO" target="_blank" class="card">
+          <div class="card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3>Fazer Orçamento</h3>
+            <p>Fale conosco para um pedido personalizado.</p>
+            <span class="card-btn">WhatsApp</span>
+          </div>
+        </a>
 
-        <main class="products-grid" id="productGrid">
-            
-            <!-- PRODUTO 1 -->
-            <div class="product-card">
-                <div class="product-image" style="background-image: url('URL_DA_SUA_FOTO_AQUI.jpg');"></div>
-                <div class="product-info">
-                    <h3>Gatilho Flat CNC V2</h3>
-                    <p>Gatilho customizado em alumínio CNC para gearboxes V2. Melhora a resposta e o visual.</p>
-                    <span class="product-price">R$ 89,90</span>
-                    <a href="LINK_DO_ANUNCIO_NO_ML" target="_blank" class="btn-comprar">🛒 Comprar no ML</a>
-                </div>
-            </div>
+        <a href="https://www.instagram.com/tavola3d.studio/" target="_blank" class="card">
+          <div class="card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3>Instagram</h3>
+            <p>Veja nossos bastidores e novidades.</p>
+            <span class="card-btn">Seguir no Instagram</span>
+          </div>
+        </a>
 
-            <!-- PRODUTO 2 -->
-            <div class="product-card">
-                <div class="product-image" style="background-image: url('URL_DA_SUA_FOTO_AQUI.jpg');"></div>
-                <div class="product-info">
-                    <h3>Pistão com Dentes de Metal</h3>
-                    <p>Alta durabilidade para setups de alta performance e DMR.</p>
-                    <span class="product-price">R$ 120,00</span>
-                    <a href="LINK_DO_ANUNCIO_NO_ML" target="_blank" class="btn-comprar">🛒 Comprar no ML</a>
-                </div>
-            </div>
+        <a href="LINK_ARQUITETURA" target="_blank" class="card">
+          <div class="card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 22h20"></path>
+              <path d="M6 18v-7l6-5 6 5v7"></path>
+              <path d="M10 18v-4h4v4"></path>
+              <path d="M18 2h3v3"></path>
+              <path d="M14 6l7-4"></path>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3>Maquetes & Arquitetura</h3>
+            <p>Projetos detalhados e precisos.</p>
+            <span class="card-btn">Saiba Mais</span>
+          </div>
+        </a>
 
-            <!-- PRODUTO 3 -->
-            <div class="product-card">
-                <div class="product-image" style="background-image: url('URL_DA_SUA_FOTO_AQUI.jpg');"></div>
-                <div class="product-info">
-                    <h3>Cano de Precisão 6.03mm</h3>
-                    <p>Aumente a precisão e o FPS do seu equipamento com este cano em aço inox (300mm).</p>
-                    <span class="product-price">R$ 210,00</span>
-                    <a href="LINK_DO_ANUNCIO_NO_ML" target="_blank" class="btn-comprar">🛒 Comprar no ML</a>
-                </div>
-            </div>
-            
-            <!-- PRODUTO 4 -->
-            <div class="product-card">
-                <div class="product-image" style="background-image: url('URL_DA_SUA_FOTO_AQUI.jpg');"></div>
-                <div class="product-info">
-                    <h3>Hop-up Rotary Style M4</h3>
-                    <p>Câmara de hop-up estilo rotativo, facilita o ajuste fino e mantém a regulagem durante os disparos.</p>
-                    <span class="product-price">R$ 145,50</span>
-                    <a href="LINK_DO_ANUNCIO_NO_ML" target="_blank" class="btn-comprar">🛒 Comprar no ML</a>
-                </div>
-            </div>
+        <a href="https://www.mercadolivre.com.br/granada-dummy-de-impacto-azul-reutilizavel/up/MLBU4638251004" target="_blank" class="card">
+          <div class="card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 2h4"></path>
+              <path d="M12 2v3"></path>
+              <circle cx="8" cy="3" r="1.5"></circle>
+              <path d="M7 9a5 5 0 0 1 10 0v7a5 5 0 0 1-10 0V9z"></path>
+              <line x1="7" y1="12" x2="17" y2="12"></line>
+              <line x1="7" y1="16" x2="17" y2="16"></line>
+              <line x1="12" y1="9" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3>Granada Dummy de Impacto</h3>
+            <p>Compre diretamente na nossa loja oficial do Mercado Livre.</p>
+            <span class="card-btn">Comprar no ML</span>
+          </div>
+        </a>
+      </main>
 
-            <div id="no-results">Nenhum produto encontrado com essa pesquisa.</div>
-
-        </main>
-
-        <footer>
-            © 2026 TÁVOLA. TODOS OS DIREITOS RESERVADOS.
-        </footer>
-
+      <footer>© 2026 TÁVOLA. TODOS OS DIREITOS RESERVADOS.</footer>
     </div>
-
-    <!-- Script para fazer a barra de pesquisa funcionar (sem precisar de Backend!) -->
-    <script>
-        document.getElementById('searchInput').addEventListener('keyup', function() {
-            let filter = this.value.toLowerCase();
-            let cards = document.querySelectorAll('.product-card');
-            let hasResults = false;
-
-            cards.forEach(function(card) {
-                let title = card.querySelector('h3').textContent.toLowerCase();
-                let desc = card.querySelector('p').textContent.toLowerCase();
-
-                if (title.includes(filter) || desc.includes(filter)) {
-                    card.style.display = 'flex';
-                    hasResults = true;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            // Mostra ou esconde a mensagem de "nenhum resultado"
-            document.getElementById('no-results').style.display = hasResults ? 'none' : 'block';
-        });
-    </script>
-
-</body>
+  </body>
 </html>
