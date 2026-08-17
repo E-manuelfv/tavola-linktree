@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Távola | Catálogo Airsoft & Tático</title>
+    
+    <!-- Fontes Oficiais da Marca -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --card-bg: #262626;
+            --text-main: #ffffff;
+            --text-muted: #a3a3a3;
+            --accent-color: #d4af37; /* Dourado Távola */
+            --accent-hover: #f1c94b;
+            --ml-color: #ffe600; /* Cor do Mercado Livre */
+            --ml-hover: #ffed4d;
+            --font-title: 'League Spartan', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            padding: 20px;
+            background-image: radial-gradient(circle at top, #2a2a2a 0%, #1a1a1a 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Cabeçalho do Catálogo */
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 40px;
+            gap: 15px;
+        }
+
+        .back-link {
+            align-self: flex-start;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--accent-hover);
+        }
+
+        header h1 {
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            color: var(--text-muted);
+        }
+
+        /* Barra de Pesquisa */
+        .search-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 40px auto;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 30px;
+            border: 1px solid #444;
+            background-color: #111;
+            color: white;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-container input:focus {
+            border-color: var(--accent-color);
+        }
+
+        /* Grid de Produtos */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* Card do Produto */
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border-color: var(--accent-color);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background-color: #111;
+            object-fit: cover;
+            /* Placeholder: substitua pelas fotos reais */
+            background-image: url('https://via.placeholder.com/300x200/111111/d4af37?text=Foto+do+Produto');
+            background-position: center;
+            background-size: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            gap: 10px;
+        }
+
+        .product-info h3 {
+            font-family: var(--font-title);
+            font-size: 1.3rem;
+            color: var(--text-main);
+        }
+
+        .product-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            flex-grow: 1; /* Empurra o preço e botão pra baixo */
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin: 10px 0;
+        }
+
+        .btn-comprar {
+            display: block;
+            text-align: center;
+            background-color: var(--ml-color);
+            color: #2d3277; /* Azul escuro do logo do ML */
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn-comprar:hover {
+            background-color: var(--ml-hover);
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.8rem;
+            color: #666;
+            font-family: var(--font-title);
+            letter-spacing: 1px;
+        }
+
+        /* Mensagem de nenhum produto encontrado */
+        #no-results {
+            display: none;
+            text-align: center;
+            grid-column: 1 / -1;
+            color: var(--text-muted);
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <a href="index.html" class="back-link">← Voltar para o Início</a>
+            <h1>Peças Táticas & Airsoft</h1>
+            <p>Encontre os melhores upgrades e equipamentos. Compra 100% segura via Mercado Livre.</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Pesquisar por nome do produto, marca, modelo...">
+        </div>
+
+        <main class="products-grid" id="productGrid">
+            
+            <!-- PRODUTO 1 -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('URL_DA_SUA_FOTO_AQUI.jpg');"></div>
+                <div class="product-info">
+                    <h3>Gatilho Flat CNC V2</h3>
+                    <p>Gatilho customizado em alumínio CNC para gearboxes V2. Melhora a resposta e o visual.</p>
+                    <span class="product-price">R$ 89,90</span>
+                    <a href="LINK_DO_ANUNCIO_NO_ML" target="_blank" class="btn-comprar">🛒 Comprar no ML</a>
+                </div>
+            </div>
+
+            <!-- PRODUTO 2 -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('URL_DA_SUA_FOTO_AQUI.jpg');"></div>
+                <div class="product-info">
+                    <h3>Pistão com Dentes de Metal</h3>
+                    <p>Alta durabilidade para setups de alta performance e DMR.</p>
+                    <span class="product-price">R$ 120,00</span>
+                    <a href="LINK_DO_ANUNCIO_NO_ML" target="_blank" class="btn-comprar">🛒 Comprar no ML</a>
+                </div>
+            </div>
+
+            <!-- PRODUTO 3 -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('URL_DA_SUA_FOTO_AQUI.jpg');"></div>
+                <div class="product-info">
+                    <h3>Cano de Precisão 6.03mm</h3>
+                    <p>Aumente a precisão e o FPS do seu equipamento com este cano em aço inox (300mm).</p>
+                    <span class="product-price">R$ 210,00</span>
+                    <a href="LINK_DO_ANUNCIO_NO_ML" target="_blank" class="btn-comprar">🛒 Comprar no ML</a>
+                </div>
+            </div>
+            
+            <!-- PRODUTO 4 -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('URL_DA_SUA_FOTO_AQUI.jpg');"></div>
+                <div class="product-info">
+                    <h3>Hop-up Rotary Style M4</h3>
+                    <p>Câmara de hop-up estilo rotativo, facilita o ajuste fino e mantém a regulagem durante os disparos.</p>
+                    <span class="product-price">R$ 145,50</span>
+                    <a href="LINK_DO_ANUNCIO_NO_ML" target="_blank" class="btn-comprar">🛒 Comprar no ML</a>
+                </div>
+            </div>
+
+            <div id="no-results">Nenhum produto encontrado com essa pesquisa.</div>
+
+        </main>
+
+        <footer>
+            © 2026 TÁVOLA. TODOS OS DIREITOS RESERVADOS.
+        </footer>
+
+    </div>
+
+    <!-- Script para fazer a barra de pesquisa funcionar (sem precisar de Backend!) -->
+    <script>
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            let filter = this.value.toLowerCase();
+            let cards = document.querySelectorAll('.product-card');
+            let hasResults = false;
+
+            cards.forEach(function(card) {
+                let title = card.querySelector('h3').textContent.toLowerCase();
+                let desc = card.querySelector('p').textContent.toLowerCase();
+
+                if (title.includes(filter) || desc.includes(filter)) {
+                    card.style.display = 'flex';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Mostra ou esconde a mensagem de "nenhum resultado"
+            document.getElementById('no-results').style.display = hasResults ? 'none' : 'block';
+        });
+    </script>
+
+</body>
+</html>
